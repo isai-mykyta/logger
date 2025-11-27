@@ -10,11 +10,19 @@ class Logger {
       level: "info",
       format: winston.format.combine(
         winston.format.timestamp(),
-        winston.format.json()
+        winston.format.json(),
+        winston.format.colorize({ all: true })
       ),
       transports: [
         new winston.transports.Console(),
       ],
+    });
+
+    winston.addColors({
+      info: "blue",
+      warn: "yellow",
+      error: "red",
+      debug: "gray",
     });
   }
 
